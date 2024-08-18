@@ -50,7 +50,7 @@ config file and update the values of SETTINGS.
 An attempt will be made to convert the data to the type indicated in the constant, so
 the string '10' entered by the user will become an integer.
 
-This module also provide for you Url, LogLevel, IP, TustList, StaleTime and Cls classes; If you want to use them, you
+This module also provide for you Url, IP, LogLevel, AddressKList, StaleTime and Cls classes; If you want to use them, you
 must import these classes from this module and use as a typeOf:
 
 from settings import IniSettings, Url, IP, LogLevel, AddressKList, StaleTime, Cls
