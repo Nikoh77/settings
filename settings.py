@@ -1,26 +1,26 @@
 """
-This is a simple settings config parser, importer and filler module by Nikoh version 1.0.1
-On main/calling module, the required data for running this software, are defined
-as a global scope constant.
-It is important to follow this syntax defining the constants:
+This is a simple settings config parser, importer and filler module by Nikoh.
+In the main/calling module, the required data for running this software are defined
+as global scope constants.
+It is important to follow this syntax when defining the constants:
 
 SETTINGS: dict[str, dict[str, object | dict[str, Any]]] = {
     "THISAPP": {
-    "LOGLEVEL": {"data": "debug", "typeOf": LogLevel, "required": False},
-    "URL": {"data": "www.google.it", "typeOf": Url, "required": False},
+        "LOGLEVEL": {"data": "debug", "typeOf": LogLevel, "required": False},
+        "URL": {"data": "www.google.it", "typeOf": Url, "required": False},
     },
     "someSection": {
-    "INCLUDE": someClassObject,
+        "INCLUDE": someClassObject,
     },
-},
+}
 
-For example, if you want to have following data in the configuration file:
+For example, if you want to have the following data in the configuration file:
 
 [BANANAS]
 number_of = 10
 color = green
 
-We need to add the following constants in the main module:
+You need to add the following constants in the main module:
 
 SETTINGS: dict[str, dict[str, object | dict[str, Any]]] = {
     "BANANAS": {
@@ -28,10 +28,10 @@ SETTINGS: dict[str, dict[str, object | dict[str, Any]]] = {
         "color": {"data": None, "typeOf": str, "required": False},
     },
 
-When application start, settings will ask the user to enter the number of bananas (not color because not required)
+When the application starts, settings will ask the user to enter the number of bananas (not color because not required).
 
 It is important to note that the value of 'data' key of all these constants is updated
-at runtime from None to values read from the configuration file by iniRead method.
+at runtime from None to values read from the configuration file by the iniRead method.
 
 You can instantiate the class like this:
 
@@ -43,26 +43,26 @@ config file and update the values of SETTINGS.
 
     if not mySettings.iniRead():
         logger.critical(
-            msg="Error building and or retrieving settings from config file, exiting..."
+            msg="Error building and/or retrieving settings from config file, exiting..."
         )
         raise SystemExit
 
 An attempt will be made to convert the data to the type indicated in the constant, so
 the string '10' entered by the user will become an integer.
 
-This module also provide for you Url, IP, LogLevel, AddressKList, StaleTime and Cls classes; If you want to use them, you
+This module also provides for you Url, IP, LogLevel, AddressKList, StaleTime and Cls classes; if you want to use them, you
 must import these classes from this module and use as a typeOf:
 
 from settings import IniSettings, Url, IP, LogLevel, AddressKList, StaleTime, Cls
 
-Is important to know that if initial data is not None this will be the default value for this costant
-and settings will not ask the user to enter this data, but if you also provide same option on the config file
+It is important to know that if initial data is not None this will be the default value for this constant
+and settings will not ask the user to enter this data, but if you also provide the same option on the config file
 the default data will be overwritten.
 
-Finally, you also can include other settings from other modules, just add the key "INCLUDE" with the class object as value;
+Finally, you can also include other settings from other modules, just add the key "INCLUDE" with the class object as value;
 the settings of the included module will be added to the current settings and/or override the existing ones.
-With include settings you can override the default values (where INCLUDE is defined) and after you can re-override them with the config file values.
-This is very useful with classes that heve their own patterns and settings.
+With included settings you can override the default values (where INCLUDE is defined) and after you can override them again with the config file values.
+This is very useful with classes that have their own patterns and settings.
 
 I wish you a lot of fun with my module, and if you have any questions or suggestions, please let me know.
 """
