@@ -79,7 +79,7 @@ import importlib
 import sys
 
 logger = logging.getLogger(name=__name__)
-
+__version__ = "1.0.1"
 
 class IP:
     """
