@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="settings",
-    version="1.0.5",
+    version="1.0.6",
     description="A settings manager package",
     packages=find_packages(),
     author="Nikoh",
