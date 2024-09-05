@@ -93,7 +93,7 @@ class IP:
     def __repr__(self) -> str:
         return str(object=self._ip)
 
-    def __eq__(self, other):
+    def __eq__(self, other) -> bool:
         if isinstance(other, str):
             return self._ip == other
         return False
