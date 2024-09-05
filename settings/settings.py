@@ -332,9 +332,8 @@ class IniSettings:
 
     def verifyAndGetIncludes(self, settings) -> dict[str, dict[str, dict[str, Any]]]:
         for section, options in settings.items():
-            # Verify if the INCLUDE key is present
+            # If the "INCLUDE" key is present, import module specified in his value
             if "INCLUDE" in options:
-                # import module specified in "INCLUDE" value
                 try:
                     tempClass = settings[section]["INCLUDE"]
                     tempModule = tempClass.__module__
