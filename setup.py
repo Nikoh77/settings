@@ -1,13 +1,19 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 
 setup(
     name="settings",
-    version="1.0.6",
+    version="1.0.7",
     description="A settings manager package",
-    packages=find_packages(),
+    url="https://github.com/Nikoh77/settings",
     author="Nikoh",
     author_email="nikoh@nikoh.it",
-    url="https://github.com/Nikoh77",
-    download_url="https://github.com/Nikoh77/settings.git",
+    packages=["settings"],
     package_data={"settings": ["py.typed"]},
+    install_requires=[
+        "configparser",
+        "ipaddress",
+        "json",
+        # other dependencies here
+    ],
+    python_requires=">=3.6",
 )

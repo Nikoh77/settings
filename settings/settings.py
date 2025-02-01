@@ -28,7 +28,8 @@ SETTINGS: dict[str, dict[str, object | dict[str, Any]]] = {
         "color": {"data": None, "typeOf": str, "required": False},
     },
 
-When the application starts, settings will ask the user to enter the number of bananas (not color because not required).
+When the application starts, settings will ask the user to enter the number of
+bananas (not color because not required).
 
 It is important to note that the value of 'data' key of all these constants is updated
 at runtime from None to values read from the configuration file by the iniRead method.
@@ -60,7 +61,7 @@ and settings will not ask the user to enter this data, but if you also provide t
 the default data will be overwritten.
 
 Finally, you can also include other settings from other modules, just add the key "INCLUDE" with the class object as value;
-the settings of the included module will be added to the current settings and/or override the existing ones.
+SETTINGS property of the included class will be added to the current settings and/or override the existing ones.
 With included settings you can override the default values (where INCLUDE is defined) and after you can override them again with the config file values.
 This is very useful with classes that have their own patterns and settings.
 
