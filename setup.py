@@ -11,9 +11,7 @@ setup(
     package_data={"settings": ["py.typed"]},
     install_requires=[
         "configparser",
-        "ipaddress",
-        "json",
-        # other dependencies here
+        "ipaddress"
     ],
     python_requires=">=3.6",
 )
